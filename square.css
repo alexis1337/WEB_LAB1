@@ -1,0 +1,48 @@
+body {
+    background-color: beige;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+}
+
+.color-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.color-item[data-color="yellow"]:hover {
+    color: yellow;
+    cursor: pointer;
+}
+
+.color-item[data-color="red"]:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.color-item[data-color="blue"]:hover {
+    color: blue;
+    cursor: pointer;
+}
+
+.color-item[data-color="green"]:hover {
+    color: green;
+    cursor: pointer;
+}
+
+.color-item[data-color="black"]:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    margin-right: 20px;
+}
