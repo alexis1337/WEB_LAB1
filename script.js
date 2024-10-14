@@ -3,6 +3,6 @@ const square = document.getElementById('square');
 
 colorItems.forEach(item => {
     item.addEventListener('click', () => {
-        square.style.backgroundColor = item.classList[1];
+        square.style.backgroundColor = item.dataset.color;
     });
 });
