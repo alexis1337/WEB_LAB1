@@ -1,0 +1,128 @@
+basePath: /api
+definitions:
+  models.News:
+    properties:
+      author:
+        type: string
+      content:
+        type: string
+      id:
+        type: integer
+      title:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: This is a RESTful API to manage news articles
+  title: News API
+  version: "1.0"
+paths:
+  /api/news:
+    get:
+      consumes:
+      - application/json
+      description: Get all news articles
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.News'
+            type: array
+      summary: Get all news
+      tags:
+      - news
+  /api/news/create:
+    post:
+      consumes:
+      - application/json
+      description: Create a new news article
+      parameters:
+      - description: News Title
+        in: body
+        name: title
+        required: true
+        schema:
+          type: string
+      - description: News Author
+        in: body
+        name: author
+        required: true
+        schema:
+          type: string
+      - description: News Content
+        in: body
+        name: content
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.News'
+      summary: Create a news article
+      tags:
+      - news
+  /api/news/delete/{id}:
+    delete:
+      description: Delete a news article by ID
+      parameters:
+      - description: News ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: News deleted
+          schema:
+            type: string
+      summary: Delete a news article
+      tags:
+      - news
+  /api/news/update/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Update an existing news article by ID
+      parameters:
+      - description: News ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: News Title
+        in: body
+        name: title
+        required: true
+        schema:
+          type: string
+      - description: News Author
+        in: body
+        name: author
+        required: true
+        schema:
+          type: string
+      - description: News Content
+        in: body
+        name: content
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.News'
+      summary: Update an existing news article
+      tags:
+      - news
+swagger: "2.0"
